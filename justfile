@@ -18,6 +18,14 @@ set dotenv-filename := ".env.local"
 @dep2:
   cargo modules dependencies -p proxy-rs --manifest-path ./ --no-externs --no-sysroot --no-uses --max-depth 1|save -f docs/proxy-rs.proxy.b.dot
 
+@argument:
+  cargo modules dependencies -p proxy-rs --manifest-path ./ --no-externs --no-sysroot --no-uses --max-depth 1 --focus-on  proxy_rs::argument::* | save -f docs/cli/argument.a.dot
+
+
+@clidot:
+  dot -Tpng ./docs/cli/cli_parse.a.dot -o ./docs/cli/cli_parse.a.png
+  start ./docs/cli/cli_parse.a.png
+
 @dot:
-  dot -Tpng ./docs/proxy-rs.proxy.b.dot -o ./docs/proxy-rs.proxy.b.png
-  start ./docs/proxy-rs.proxy.b.png
+  dot -Tpng ./docs/cli/argument.a.dot -o ./docs/cli/argument.a.png
+  start ./docs/cli/argument.a.png

@@ -1,0 +1,11 @@
+digraph {
+    "cli_sub" [label="match cli.sub"] 
+    "Cli::parse()" -> "cli_sub"
+    "cli_sub" -> "Grab"
+    "cli_sub" -> "Find"
+    "cli_sub" -> "Serve"
+    "derive(Subcommand, Debug, Clone)" -> "enum Commands"
+    "enum Commands" -> "Grab(GrabArgs)"
+    "enum Commands" -> "Find(FindArgs)"
+    "enum Commands" -> "Serve(ServeArgs)"
+}
