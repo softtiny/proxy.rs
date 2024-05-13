@@ -1,0 +1,83 @@
+digraph {
+
+    graph [
+        label="proxy_rs",
+        labelloc=t,
+
+        pad=0.4,
+
+        // Consider rendering the graph using a different layout algorithm, such as:
+        // [dot, neato, twopi, circo, fdp, sfdp]
+        layout=neato,
+        overlap=false,
+        splines="line",
+        rankdir=LR,
+
+        fontname="Helvetica", 
+        fontsize="36",
+    ];
+
+    node [
+        fontname="monospace",
+        fontsize="10",
+        shape="record",
+        style="filled",
+    ];
+
+    edge [
+        fontname="monospace",
+        fontsize="10",
+    ];
+
+    "proxy_rs" [label="crate|proxy_rs", fillcolor="#5397c8"]; // "crate" node
+    "proxy_rs::ProxiesIter" [label="pub(crate) struct|ProxiesIter", fillcolor="#f8c04c"]; // "struct" node
+    "proxy_rs::STOP_FIND_LOOP" [label="pub(crate) struct|STOP_FIND_LOOP", fillcolor="#f8c04c"]; // "struct" node
+    "proxy_rs::argument" [label="pub(crate) mod|argument", fillcolor="#f8c04c"]; // "mod" node
+    "proxy_rs::argument::Cli" [label="pub struct|argument::Cli", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::argument::Commands" [label="pub enum|argument::Commands", fillcolor="#81c169"]; // "enum" node
+    "proxy_rs::argument::GrabArgs" [label="pub struct|argument::GrabArgs", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::checker" [label="pub(crate) mod|checker", fillcolor="#f8c04c"]; // "mod" node
+    "proxy_rs::checker::Checker" [label="pub struct|checker::Checker", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::handle_file_input" [label="pub(crate) async fn|handle_file_input", fillcolor="#f8c04c"]; // "async fn" node
+    "proxy_rs::handle_find_command" [label="pub(crate) async fn|handle_find_command", fillcolor="#f8c04c"]; // "async fn" node
+    "proxy_rs::handle_grab_command" [label="pub(crate) async fn|handle_grab_command", fillcolor="#f8c04c"]; // "async fn" node
+    "proxy_rs::judge" [label="pub(crate) mod|judge", fillcolor="#f8c04c"]; // "mod" node
+    "proxy_rs::main" [label="pub(crate) fn|main", fillcolor="#f8c04c"]; // "fn" node
+    "proxy_rs::negotiators" [label="pub(crate) mod|negotiators", fillcolor="#f8c04c"]; // "mod" node
+    "proxy_rs::providers" [label="pub(crate) mod|providers", fillcolor="#f8c04c"]; // "mod" node
+    "proxy_rs::providers::PROXIES" [label="pub struct|providers::PROXIES", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::proxy" [label="pub(crate) mod|proxy", fillcolor="#f8c04c"]; // "mod" node
+    "proxy_rs::proxy::Proxy" [label="pub struct|proxy::Proxy", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::resolver" [label="pub(crate) mod|resolver", fillcolor="#f8c04c"]; // "mod" node
+    "proxy_rs::server" [label="pub(crate) mod|server", fillcolor="#f8c04c"]; // "mod" node
+    "proxy_rs::server::Server" [label="pub struct|server::Server", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::server::proxy_pool::LIVE_PROXIES" [label="pub struct|server::proxy_pool::LIVE_PROXIES", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::utils" [label="pub(crate) mod|utils", fillcolor="#f8c04c"]; // "mod" node
+    "proxy_rs::utils::update::check_version" [label="pub async fn|utils::update::check_version", fillcolor="#81c169"]; // "async fn" node
+
+    "proxy_rs" -> "proxy_rs::ProxiesIter" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::STOP_FIND_LOOP" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::argument" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::checker" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::handle_file_input" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::handle_find_command" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::handle_grab_command" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::judge" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::main" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::negotiators" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::providers" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::proxy" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::resolver" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::server" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::utils" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::argument" -> "proxy_rs::argument::Cli" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::argument" -> "proxy_rs::argument::Commands" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::argument" -> "proxy_rs::argument::GrabArgs" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker" -> "proxy_rs::checker::Checker" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::providers" -> "proxy_rs::providers::PROXIES" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy" -> "proxy_rs::proxy::Proxy" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::server" -> "proxy_rs::server::Server" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::server" -> "proxy_rs::server::proxy_pool::LIVE_PROXIES" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::utils" -> "proxy_rs::utils::update::check_version" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+
+}

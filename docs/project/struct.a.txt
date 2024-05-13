@@ -1,0 +1,159 @@
+crate proxy_rs
+├── struct ProxiesIter: pub(crate)
+├── struct STOP_FIND_LOOP: pub(crate)
+│   └── fn initialize: pub(crate)
+├── mod argument: pub(crate)
+│   ├── struct Cli: pub
+│   ├── enum Commands: pub
+│   ├── struct FindArgs: pub
+│   ├── struct GrabArgs: pub
+│   └── struct ServeArgs: pub
+├── mod checker: pub(crate)
+│   ├── struct Checker: pub
+│   │   ├── fn build_raw_request: pub(self)
+│   │   ├── async fn check_proto: pub
+│   │   ├── async fn check_proxy: pub
+│   │   ├── fn get_anonimity_level: pub(self)
+│   │   ├── fn get_judge: pub(self)
+│   │   ├── fn get_response_status: pub(self)
+│   │   ├── async fn negotiate: pub(self)
+│   │   └── async fn new: pub
+│   ├── struct ENABLE_PROTOCOLS: pub(self)
+│   │   └── fn initialize: pub(self)
+│   ├── struct JUDGES: pub(self)
+│   │   └── fn initialize: pub(self)
+│   └── async fn check_judges: pub
+├── async fn handle_file_input: pub(crate)
+├── async fn handle_find_command: pub(crate)
+├── async fn handle_grab_command: pub(crate)
+├── mod judge: pub(crate)
+│   ├── struct Judge: pub
+│   │   └── fn new: pub
+│   ├── async fn check_judge_host: pub
+│   └── fn get_judges: pub
+├── fn main: pub(crate)
+├── mod negotiators: pub(crate)
+│   ├── mod connect_25: pub
+│   │   └── struct Connect25Negotiator: pub
+│   │       └── async fn negotiate: pub
+│   ├── mod connect_80: pub
+│   │   └── struct Connect80Negotiator: pub
+│   │       └── async fn negotiate: pub
+│   ├── mod http: pub
+│   │   └── struct HttpNegotiator: pub
+│   │       └── async fn negotiate: pub
+│   ├── mod https: pub
+│   │   └── struct HttpsNegotiator: pub
+│   │       └── async fn negotiate: pub
+│   ├── mod socks4: pub
+│   │   └── struct Socks4Negotiator: pub
+│   │       └── async fn negotiate: pub
+│   └── mod socks5: pub
+│       └── struct Socks5Negotiator: pub
+│           └── async fn negotiate: pub
+├── mod providers: pub(crate)
+│   ├── struct PROXIES: pub
+│   │   └── fn initialize: pub(self)
+│   ├── struct UNIQUE_PROXIES: pub
+│   │   └── fn initialize: pub(self)
+│   ├── mod base_provider: pub
+│   │   ├── struct Provider: pub
+│   │   └── struct ProviderTask: pub
+│   │       ├── fn build_get_request: pub(self)
+│   │       ├── async fn get_html: pub(self)
+│   │       ├── async fn get_proxies: pub
+│   │       └── fn new: pub
+│   ├── fn providers: pub
+│   ├── async fn run_all_providers: pub
+│   └── async fn update_stack: pub(self)
+├── mod proxy: pub(crate)
+│   ├── struct Proxy: pub
+│   │   ├── fn as_json: pub
+│   │   ├── fn as_text: pub
+│   │   ├── fn avg_resp_time: pub
+│   │   ├── async fn close: pub
+│   │   ├── async fn close_tcp: pub(self)
+│   │   ├── async fn close_tls: pub(self)
+│   │   ├── async fn connect: pub
+│   │   ├── async fn connect_ssl: pub
+│   │   ├── async fn connect_tcp: pub(self)
+│   │   ├── async fn create: pub
+│   │   ├── fn error_rate: pub
+│   │   ├── fn get_schemes: pub
+│   │   ├── fn log: pub
+│   │   ├── fn poll_flush: pub(self)
+│   │   ├── fn poll_read: pub(self)
+│   │   ├── fn poll_shutdown: pub(self)
+│   │   ├── fn poll_write: pub(self)
+│   │   ├── fn priority: pub
+│   │   ├── async fn recv: pub
+│   │   ├── async fn recv_all: pub
+│   │   └── async fn send: pub
+│   └── fn bytes_to_string: pub(self)
+├── mod resolver: pub(crate)
+│   ├── struct CACHED_HOSTS: pub
+│   │   └── fn initialize: pub(self)
+│   ├── struct DNS_RESOLVER: pub
+│   │   └── fn initialize: pub(self)
+│   ├── struct EXT_IP_HOSTS: pub
+│   │   └── fn initialize: pub(self)
+│   ├── struct GEO_CITY: pub
+│   │   └── fn initialize: pub(self)
+│   ├── struct GeoData: pub
+│   └── struct Resolver: pub
+│       ├── async fn get_ip_info: pub
+│       ├── async fn get_real_ext_ip: pub
+│       ├── fn host_is_ip: pub
+│       ├── fn new: pub
+│       └── async fn resolve: pub
+├── mod server: pub(crate)
+│   ├── struct POOL: pub(self)
+│   │   └── fn initialize: pub(self)
+│   ├── struct Server: pub
+│   │   ├── fn new: pub
+│   │   └── async fn start: pub
+│   ├── fn get_proxy: pub(self)
+│   ├── async fn handle_connect_stream: pub(self)
+│   ├── async fn handle_stream: pub(self)
+│   ├── mod proxy_pool: pub
+│   │   ├── struct LIVE_PROXIES: pub
+│   │   │   └── fn initialize: pub(self)
+│   │   ├── struct ProxyPool: pub
+│   │   │   ├── fn get: pub
+│   │   │   ├── fn import: pub
+│   │   │   ├── fn new: pub
+│   │   │   ├── fn put: pub
+│   │   │   └── fn remove: pub
+│   │   └── struct SimpleProxy: pub
+│   │       ├── fn as_text: pub
+│   │       ├── fn avg_resp_time: pub
+│   │       ├── fn error_rate: pub
+│   │       └── fn get_schemes: pub
+│   ├── async fn read_timeout: pub(self)
+│   └── async fn send_connect_request: pub(self)
+└── mod utils: pub(crate)
+    ├── mod geolite_database: pub
+    │   ├── struct DOWNLOADING: pub
+    │   │   └── fn initialize: pub(self)
+    │   ├── async fn calculate_checksum: pub(self)
+    │   ├── async fn download_geolite_db: pub(self)
+    │   └── async fn open_geolite_db: pub
+    ├── mod http: pub
+    │   ├── fn get_headers: pub
+    │   ├── fn hyper_client: pub
+    │   ├── fn random_useragent: pub
+    │   ├── mod request: pub
+    │   │   └── struct RequestParser: pub
+    │   │       ├── fn get_host: pub
+    │   │       └── fn parse: pub
+    │   └── mod response: pub
+    │       └── struct ResponseParser: pub
+    │           └── fn parse: pub
+    ├── mod serializer: pub
+    │   ├── struct Country: pub
+    │   ├── struct Geo: pub
+    │   ├── struct ProxyData: pub
+    │   ├── struct ProxyType: pub
+    │   └── struct Region: pub
+    └── mod update: pub
+        └── async fn check_version: pub
