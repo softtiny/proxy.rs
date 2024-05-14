@@ -1,0 +1,19 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "geodata" [label="struct GeoData"]
+    "geodata" -> "iso_code"
+    "geodata" -> "name"
+    "geodata" -> "region_iso_code"
+    "geodata" -> "region_iso_code"
+    "geodata" -> "city_name"
+    "geodata" -> "default()" -> "GeoData"
+
+    "resolver" [label= "struct Resolver"]
+    "resolver" -> "new()" -> "Resolver"
+    "resolver" -> "host_is_ip(self,ipv4)" -> "bool"
+    "resolver" -> "get_ip_info(self,ip_address)" -> "GeoData"
+    "resolver" -> "resolve(self,host)" -> "host"
+    "resolver" -> "get_real_ext_ip(self,)" -> "ip"
+}

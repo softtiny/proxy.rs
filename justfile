@@ -17,6 +17,9 @@ set dotenv-filename := ".env.local"
 @checker2:
   cargo modules dependencies -p proxy-rs   --manifest-path ./ --focus-on proxy_rs::checker::* --no-externs --no-sysroot --no-uses|save -f docs/checker/checker.b.dot
 
+@judge:
+  cargo modules dependencies -p proxy-rs   --manifest-path ./ --focus-on proxy_rs::judge::* --no-externs --no-sysroot --no-uses|save -f docs/judge/judge.a.dot
+
 @dep:
   cargo modules dependencies -p proxy-rs   --manifest-path ./ --focus-on proxy_rs::proxy::* --no-externs --no-sysroot|save -f docs/proxy-rs.proxy.a.dot
 
@@ -32,5 +35,8 @@ set dotenv-filename := ".env.local"
   start ./docs/cli/serveargs.a.png
 
 @dot:
-  dot -Tpng ./docs/checker/checker.c.dot -o ./docs/checker/checker.c.png
-  start ./docs/checker/checker.c.png
+  dot -Tpng ./docs/proxy/proxy.a.dot -o ./docs/proxy/proxy.a.png
+  start ./docs/proxy/proxy.a.png
+
+@test_checker:
+  cargo test -- --nocapture test_checker_ip_re

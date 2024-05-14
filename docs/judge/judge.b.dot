@@ -1,0 +1,17 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "judge" [label="struct Judge"]
+    "judge" -> "url"
+    "judge" -> "host"
+    "judge" -> "scheme"
+    "judge" -> "ip_address"
+    "judge" -> "is_working"
+    "judge" -> "marks" -> "BTreeMap<String, usize>"
+    "judge" -> "timeout"
+    "judge" -> "verify_ssl"
+    "judge" -> "new(url: &str)" -> "Judge"
+    "check_judge_host(judge: &mut Judge, real_ext_ip: &str)" -> "bool"
+    "get_judges" -> "Vec<Judge>"
+}

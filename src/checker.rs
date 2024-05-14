@@ -439,3 +439,14 @@ impl Checker {
         }
     }
 }
+
+
+#[test]
+fn test_checker_ip_re() {
+    println!("run test checker ip re!");
+    let ip_re = Regex::new(r#"\d+\.\d+\.\d+\.\d+"#).unwrap();
+    println!("{:?}",ip_re.is_match("12.7.1.2"));
+    assert!(ip_re.is_match("12.7.1.2"));
+    println!("{:?}",ip_re.is_match("12.7.1"));
+    println!("{:?}",ip_re.is_match("12.7.1.2.888"));
+}
