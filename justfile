@@ -35,8 +35,8 @@ set dotenv-filename := ".env.local"
   start ./docs/cli/serveargs.a.png
 
 @dot:
-  dot -Tpng ./docs/proxy/proxy.a.dot -o ./docs/proxy/proxy.a.png
-  start ./docs/proxy/proxy.a.png
+  dot -Tpng ./docs/resolver/resolver.a.dot -o ./docs/resolver/resolver.a.png
+  start ./docs/resolver/resolver.a.png
 
 @test_checker:
   cargo test -- --nocapture test_checker_ip_re
