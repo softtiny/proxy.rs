@@ -27,5 +27,5 @@ set dotenv-filename := ".env.local"
   start ./docs/cli/cli_parse.a.png
 
 @dot:
-  dot -Tpng ./docs/cli/argument.a.dot -o ./docs/cli/argument.a.png
-  start ./docs/cli/argument.a.png
+  dot -Tpng ./docs/cli/findargs.a.dot -o ./docs/cli/findargs.a.png
+  start ./docs/cli/findargs.a.png

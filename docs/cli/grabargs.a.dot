@@ -1,0 +1,25 @@
+digraph {
+    "grab" [label="struct GrabArgs"]
+    "countries" [label="-c, --countries"]
+    "limit" [label="-l, --limit default: 0"]
+    "format" [label="-f, --format"]
+    "outfile" [label="-o, --outfile"]
+    "grab" -> "countries"
+    "grab" -> "limit"
+    "grab" -> "format"
+    "grab" -> "outfile"
+    "countries" -> "TW"
+    "countries" -> "JP"
+    "format" -> "default: default"
+    "format" -> "json"
+    "format" -> "text"
+    "outfile" -> "default: console"
+    "outfile" -> "file path"
+
+    "grab_args" [label="Commands::Grab(grab_args)"]
+    "match cli.sub" -> "grab_args" 
+    "grab_args" -> "grab_args.outfile"
+    "grab_args" -> "grab_args.format"
+    "grab_args" -> "grab_args.limit"
+    "grab_args" -> "grab_args.countries"
+}

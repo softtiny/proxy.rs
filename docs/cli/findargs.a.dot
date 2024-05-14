@@ -1,0 +1,46 @@
+digraph {
+    "find" [label="struct FindArgs"]
+    "types" [label="--types"]
+    "files" [label="--files"]
+    "levels" [label="--levels"]
+    "max_tries" [label="--max-tries"]
+    "support_cookies" [label="--support-cookies"]
+    "support_referer" [label="--support-referer"]
+    "countries" [label="-c, --countries"]
+    "limit" [label="-l, --limit default: 0"]
+    "format" [label="-f, --format"]
+    "outfile" [label="-o, --outfile"]
+    "find" -> "types"
+    "find" -> "files"
+    "find" -> "levels"
+    "find" -> "max_tries"
+    "find" -> "support_cookies"
+    "find" -> "support_referer"
+    "find" -> "countries"
+    "find" -> "limit"
+    "find" -> "format"
+    "find" -> "outfile"
+    "types" -> "HTTP"
+    "types" -> "HTTPS"
+    "types" -> "SOCKS4"
+    "types" -> "SOCKS5"
+    "types" -> "CONNECT:80"
+    "types" -> "CONNECT:25"
+    "levels" -> "Transparent"
+    "levels" -> "Anonymous"
+    "levels" -> "High"
+
+
+    "find_args" [label="Commands::Find(find_args)"]
+    "match cli.sub" -> "find_args" 
+    "find_args" -> "find_args.types"
+    "find_args" -> "find_args.files"
+    "find_args" -> "find_args.levels"
+    "find_args" -> "find_args.max_tries"
+    "find_args" -> "find_args.support_cookies"
+    "find_args" -> "find_args.support_referer"
+    "find_args" -> "find_args.outfile"
+    "find_args" -> "find_args.format"
+    "find_args" -> "find_args.limit"
+    "find_args" -> "find_args.countries"
+}
