@@ -1,0 +1,161 @@
+digraph {
+
+    graph [
+        label="proxy_rs",
+        labelloc=t,
+
+        pad=0.4,
+
+        // Consider rendering the graph using a different layout algorithm, such as:
+        // [dot, neato, twopi, circo, fdp, sfdp]
+        layout=neato,
+        overlap=false,
+        splines="line",
+        rankdir=LR,
+
+        fontname="Helvetica", 
+        fontsize="36",
+    ];
+
+    node [
+        fontname="monospace",
+        fontsize="10",
+        shape="record",
+        style="filled",
+    ];
+
+    edge [
+        fontname="monospace",
+        fontsize="10",
+    ];
+
+    "proxy_rs" [label="crate|proxy_rs", fillcolor="#5397c8"]; // "crate" node
+    "proxy_rs::checker" [label="pub(crate) mod|checker", fillcolor="#f8c04c"]; // "mod" node
+    "proxy_rs::checker::Checker" [label="pub struct|checker::Checker", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::checker::Checker::build_raw_request" [label="pub(self) fn|checker::Checker::build_raw_request", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::checker::Checker::check_proto" [label="pub async fn|checker::Checker::check_proto", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::checker::Checker::check_proxy" [label="pub async fn|checker::Checker::check_proxy", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::checker::Checker::get_anonimity_level" [label="pub(self) fn|checker::Checker::get_anonimity_level", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::checker::Checker::get_judge" [label="pub(self) fn|checker::Checker::get_judge", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::checker::Checker::get_response_status" [label="pub(self) fn|checker::Checker::get_response_status", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::checker::Checker::negotiate" [label="pub(self) async fn|checker::Checker::negotiate", fillcolor="#db5367"]; // "async fn" node
+    "proxy_rs::checker::Checker::new" [label="pub async fn|checker::Checker::new", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::checker::ENABLE_PROTOCOLS" [label="pub(self) struct|checker::ENABLE_PROTOCOLS", fillcolor="#db5367"]; // "struct" node
+    "proxy_rs::checker::ENABLE_PROTOCOLS::initialize" [label="pub(self) fn|checker::ENABLE_PROTOCOLS::initialize", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::checker::JUDGES" [label="pub(self) struct|checker::JUDGES", fillcolor="#db5367"]; // "struct" node
+    "proxy_rs::checker::JUDGES::initialize" [label="pub(self) fn|checker::JUDGES::initialize", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::checker::check_judges" [label="pub async fn|checker::check_judges", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::handle_find_command" [label="pub(crate) async fn|handle_find_command", fillcolor="#f8c04c"]; // "async fn" node
+    "proxy_rs::judge::Judge" [label="pub struct|judge::Judge", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::judge::Judge::new" [label="pub fn|judge::Judge::new", fillcolor="#81c169"]; // "fn" node
+    "proxy_rs::main" [label="pub(crate) fn|main", fillcolor="#f8c04c"]; // "fn" node
+    "proxy_rs::proxy::Proxy" [label="pub struct|proxy::Proxy", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::proxy::Proxy::as_json" [label="pub fn|proxy::Proxy::as_json", fillcolor="#81c169"]; // "fn" node
+    "proxy_rs::proxy::Proxy::as_text" [label="pub fn|proxy::Proxy::as_text", fillcolor="#81c169"]; // "fn" node
+    "proxy_rs::proxy::Proxy::avg_resp_time" [label="pub fn|proxy::Proxy::avg_resp_time", fillcolor="#81c169"]; // "fn" node
+    "proxy_rs::proxy::Proxy::close" [label="pub async fn|proxy::Proxy::close", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::proxy::Proxy::close_tcp" [label="pub(self) async fn|proxy::Proxy::close_tcp", fillcolor="#db5367"]; // "async fn" node
+    "proxy_rs::proxy::Proxy::close_tls" [label="pub(self) async fn|proxy::Proxy::close_tls", fillcolor="#db5367"]; // "async fn" node
+    "proxy_rs::proxy::Proxy::connect" [label="pub async fn|proxy::Proxy::connect", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::proxy::Proxy::connect_ssl" [label="pub async fn|proxy::Proxy::connect_ssl", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::proxy::Proxy::connect_tcp" [label="pub(self) async fn|proxy::Proxy::connect_tcp", fillcolor="#db5367"]; // "async fn" node
+    "proxy_rs::proxy::Proxy::create" [label="pub async fn|proxy::Proxy::create", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::proxy::Proxy::error_rate" [label="pub fn|proxy::Proxy::error_rate", fillcolor="#81c169"]; // "fn" node
+    "proxy_rs::proxy::Proxy::get_schemes" [label="pub fn|proxy::Proxy::get_schemes", fillcolor="#81c169"]; // "fn" node
+    "proxy_rs::proxy::Proxy::log" [label="pub fn|proxy::Proxy::log", fillcolor="#81c169"]; // "fn" node
+    "proxy_rs::proxy::Proxy::poll_flush" [label="pub(self) fn|proxy::Proxy::poll_flush", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::proxy::Proxy::poll_read" [label="pub(self) fn|proxy::Proxy::poll_read", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::proxy::Proxy::poll_shutdown" [label="pub(self) fn|proxy::Proxy::poll_shutdown", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::proxy::Proxy::poll_write" [label="pub(self) fn|proxy::Proxy::poll_write", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::proxy::Proxy::priority" [label="pub fn|proxy::Proxy::priority", fillcolor="#81c169"]; // "fn" node
+    "proxy_rs::proxy::Proxy::recv" [label="pub async fn|proxy::Proxy::recv", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::proxy::Proxy::recv_all" [label="pub async fn|proxy::Proxy::recv_all", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::proxy::Proxy::send" [label="pub async fn|proxy::Proxy::send", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::resolver::CACHED_HOSTS" [label="pub struct|resolver::CACHED_HOSTS", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::resolver::CACHED_HOSTS::initialize" [label="pub(self) fn|resolver::CACHED_HOSTS::initialize", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::resolver::DNS_RESOLVER" [label="pub struct|resolver::DNS_RESOLVER", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::resolver::DNS_RESOLVER::initialize" [label="pub(self) fn|resolver::DNS_RESOLVER::initialize", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::resolver::GEO_CITY" [label="pub struct|resolver::GEO_CITY", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::resolver::GEO_CITY::initialize" [label="pub(self) fn|resolver::GEO_CITY::initialize", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::resolver::GeoData" [label="pub struct|resolver::GeoData", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::resolver::Resolver" [label="pub struct|resolver::Resolver", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::resolver::Resolver::get_ip_info" [label="pub async fn|resolver::Resolver::get_ip_info", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::resolver::Resolver::get_real_ext_ip" [label="pub async fn|resolver::Resolver::get_real_ext_ip", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::resolver::Resolver::host_is_ip" [label="pub fn|resolver::Resolver::host_is_ip", fillcolor="#81c169"]; // "fn" node
+    "proxy_rs::resolver::Resolver::new" [label="pub fn|resolver::Resolver::new", fillcolor="#81c169"]; // "fn" node
+    "proxy_rs::resolver::Resolver::resolve" [label="pub async fn|resolver::Resolver::resolve", fillcolor="#81c169"]; // "async fn" node
+    "proxy_rs::utils::geolite_database::DOWNLOADING" [label="pub struct|utils::geolite_database::DOWNLOADING", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::utils::geolite_database::DOWNLOADING::initialize" [label="pub(self) fn|utils::geolite_database::DOWNLOADING::initialize", fillcolor="#db5367"]; // "fn" node
+    "proxy_rs::utils::http::response::ResponseParser" [label="pub struct|utils::http::response::ResponseParser", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::utils::http::response::ResponseParser::parse" [label="pub fn|utils::http::response::ResponseParser::parse", fillcolor="#81c169"]; // "fn" node
+    "proxy_rs::utils::serializer::Country" [label="pub struct|utils::serializer::Country", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::utils::serializer::Geo" [label="pub struct|utils::serializer::Geo", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::utils::serializer::ProxyData" [label="pub struct|utils::serializer::ProxyData", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::utils::serializer::ProxyType" [label="pub struct|utils::serializer::ProxyType", fillcolor="#81c169"]; // "struct" node
+    "proxy_rs::utils::serializer::Region" [label="pub struct|utils::serializer::Region", fillcolor="#81c169"]; // "struct" node
+
+    "proxy_rs" -> "proxy_rs::checker" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::handle_find_command" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::judge::Judge" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::main" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::proxy::Proxy" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::resolver::CACHED_HOSTS" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::resolver::DNS_RESOLVER" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::resolver::GEO_CITY" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::resolver::GeoData" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::resolver::Resolver" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::utils::geolite_database::DOWNLOADING" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::utils::http::response::ResponseParser" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::utils::serializer::Country" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::utils::serializer::Geo" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::utils::serializer::ProxyData" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::utils::serializer::ProxyType" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs" -> "proxy_rs::utils::serializer::Region" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker" -> "proxy_rs::checker::Checker" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker" -> "proxy_rs::checker::ENABLE_PROTOCOLS" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker" -> "proxy_rs::checker::JUDGES" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker" -> "proxy_rs::checker::check_judges" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker::Checker" -> "proxy_rs::checker::Checker::build_raw_request" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker::Checker" -> "proxy_rs::checker::Checker::check_proto" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker::Checker" -> "proxy_rs::checker::Checker::check_proxy" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker::Checker" -> "proxy_rs::checker::Checker::get_anonimity_level" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker::Checker" -> "proxy_rs::checker::Checker::get_judge" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker::Checker" -> "proxy_rs::checker::Checker::get_response_status" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker::Checker" -> "proxy_rs::checker::Checker::negotiate" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker::Checker" -> "proxy_rs::checker::Checker::new" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker::ENABLE_PROTOCOLS" -> "proxy_rs::checker::ENABLE_PROTOCOLS::initialize" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::checker::JUDGES" -> "proxy_rs::checker::JUDGES::initialize" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::judge::Judge" -> "proxy_rs::judge::Judge::new" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::as_json" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::as_text" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::avg_resp_time" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::close" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::close_tcp" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::close_tls" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::connect" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::connect_ssl" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::connect_tcp" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::create" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::error_rate" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::get_schemes" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::log" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::poll_flush" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::poll_read" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::poll_shutdown" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::poll_write" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::priority" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::recv" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::recv_all" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::proxy::Proxy" -> "proxy_rs::proxy::Proxy::send" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::resolver::CACHED_HOSTS" -> "proxy_rs::resolver::CACHED_HOSTS::initialize" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::resolver::DNS_RESOLVER" -> "proxy_rs::resolver::DNS_RESOLVER::initialize" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::resolver::GEO_CITY" -> "proxy_rs::resolver::GEO_CITY::initialize" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::resolver::Resolver" -> "proxy_rs::resolver::Resolver::get_ip_info" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::resolver::Resolver" -> "proxy_rs::resolver::Resolver::get_real_ext_ip" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::resolver::Resolver" -> "proxy_rs::resolver::Resolver::host_is_ip" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::resolver::Resolver" -> "proxy_rs::resolver::Resolver::new" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::resolver::Resolver" -> "proxy_rs::resolver::Resolver::resolve" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::utils::geolite_database::DOWNLOADING" -> "proxy_rs::utils::geolite_database::DOWNLOADING::initialize" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+    "proxy_rs::utils::http::response::ResponseParser" -> "proxy_rs::utils::http::response::ResponseParser::parse" [label="owns", color="#000000", style="solid"] [constraint=true]; // "owns" edge
+
+}

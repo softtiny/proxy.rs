@@ -11,6 +11,11 @@ set dotenv-filename := ".env.local"
 @struct:
   cargo modules structure -p proxy-rs --manifest-path ./ --focus-on proxy_rs::proxy::* --max-depth 11
 
+@checker:
+  cargo modules dependencies -p proxy-rs   --manifest-path ./ --focus-on proxy_rs::checker::* --no-externs --no-sysroot|save -f docs/checker/checker.a.dot
+
+@checker2:
+  cargo modules dependencies -p proxy-rs   --manifest-path ./ --focus-on proxy_rs::checker::* --no-externs --no-sysroot --no-uses|save -f docs/checker/checker.b.dot
 
 @dep:
   cargo modules dependencies -p proxy-rs   --manifest-path ./ --focus-on proxy_rs::proxy::* --no-externs --no-sysroot|save -f docs/proxy-rs.proxy.a.dot
@@ -23,9 +28,9 @@ set dotenv-filename := ".env.local"
 
 
 @clidot:
-  dot -Tpng ./docs/cli/cli_parse.a.dot -o ./docs/cli/cli_parse.a.png
-  start ./docs/cli/cli_parse.a.png
+  dot -Tpng ./docs/cli/serveargs.a.dot -o ./docs/cli/serveargs.a.png
+  start ./docs/cli/serveargs.a.png
 
 @dot:
-  dot -Tpng ./docs/cli/findargs.a.dot -o ./docs/cli/findargs.a.png
-  start ./docs/cli/findargs.a.png
+  dot -Tpng ./docs/checker/checker.c.dot -o ./docs/checker/checker.c.png
+  start ./docs/checker/checker.c.png

@@ -1,4 +1,7 @@
 digraph {
+    graph [ 
+        rankdir=LR,
+    ]
     "find" [label="struct FindArgs"]
     "types" [label="--types"]
     "files" [label="--files"]

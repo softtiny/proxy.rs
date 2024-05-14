@@ -1,4 +1,7 @@
 digraph {
+    graph [ 
+        rankdir=LR,
+    ]
     "grab" [label="struct GrabArgs"]
     "countries" [label="-c, --countries"]
     "limit" [label="-l, --limit default: 0"]

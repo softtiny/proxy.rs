@@ -1,0 +1,25 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "checker" [label="struct Checker"]
+    "checker" -> "verify_ssl"
+    "checker" -> "timeout"
+    "checker" -> "max_tries"
+    "checker" -> "method"
+    "checker" -> "support_referer"
+    "checker" -> "support_cookie"
+    "checker" -> "expected_types"
+    "checker" -> "expected_levels"
+    "checker" -> "expected_countries"
+    "checker" -> "ext_ip"
+    "checker" -> "ip_re"
+    "checker" -> "check_proxy(self,Proxy)"
+    "checker" -> "check_proto(self,Proxy,proto)"
+    "checker" -> "negotiate(self,proxy,judge,proto)"
+    "checker" -> "get_anonimity_level(self,response,marks)"
+    "checker" -> "get_response_status(self,response,headers,rv)"
+    "checker" -> "build_raw_request(self,host,path,use_full_path,data)"
+    "checker" -> "get_judge(self,proto)"
+    "checker" -> "new()"
+}

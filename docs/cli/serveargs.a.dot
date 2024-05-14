@@ -1,0 +1,29 @@
+digraph { 
+    graph [ 
+        rankdir=LR,
+    ]
+    "serve" [label="struct ServeArgs"]
+    "host" [label="--host"]
+    "port" [label="--port"]
+    "types" [label="--types"]
+    "files" [label="--files"]
+    "levels" [label="--levels"]
+    "max_tries" [label="--max-tries"]
+    "countries" [label="-c, --countries"]
+    "serve" -> "host"
+    "serve" -> "port"
+    "serve" -> "types"
+    "serve" -> "files"
+    "serve" -> "levels"
+    "serve" -> "max_tries"
+    "serve" -> "countries"
+    "serve_args" [label="Commands::Serve(serve_args)"]
+    "match cli.sub" -> "serve_args" 
+    "serve_args" -> "serve_args.host"
+    "serve_args" -> "serve_args.port"
+    "serve_args" -> "serve_args.types"
+    "serve_args" -> "serve_args.files"
+    "serve_args" -> "serve_args.levels"
+    "serve_args" -> "serve_args.max_tries"
+    "serve_args" -> "serve_args.countries"
+}
