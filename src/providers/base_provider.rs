@@ -20,6 +20,7 @@ pub struct Provider {
     pub proto: Vec<String>,
     pub name: &'static str,
     pub timeout: i32,
+
 }
 
 impl Default for Provider {

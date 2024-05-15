@@ -1,0 +1,44 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "server" [label="struct Server"]
+    "server" -> "host"
+    "server" -> "port"
+    "server" -> "new(host: &str, port: u16)" -> "Server"
+    "server" -> "start(&self)"
+    "server" -> "handle_stream(request: Request<Body>)" -> "Result<Response<Body>, hyper::Error>"
+    "server" -> "handle_connect_stream(request,mut proxy)" -> "Result<(), Box<dyn std::error::Error>>"
+    "server" -> "get_proxy(method: &Method)" -> "Option<SimpleProxy>"
+    "server" -> "send_connect_request(stream,host,timeout_in_seconds)" -> "bool"
+    "server" -> "read_timeout(reader: &mut R, timeout_in_seconds: u64)" -> "Vec<u8>"
+
+    "simple" [label="struct SimpleProxy"]
+    "simple" -> "host"
+    "simple" -> "port"
+    "simple" -> "geo"
+    "simple" -> "types"
+    "simple" -> "schemes"
+    "simple" -> "runtimes"
+    "simple" -> "request_stat"
+    "simple" -> "error_stat"
+    "simple" -> "as_text(&self)"
+    "simple" -> "error_rate(&self)"
+    "simple" -> "avg_resp_time(&self) "
+    "simple" -> "get_schemes(&mut self)"
+    "simple" -> "cmp(&self, other: &Self)"
+
+    "pool" -> "struct ProxyPool"
+    "pool" -> "pool: BinaryHeap<SimpleProxy>"
+    "pool" -> "newcomers"
+    "pool" -> "strategy"
+    "pool" -> "min_req_proxy"
+    "pool" -> "max_error_rate"
+    "pool" -> "max_avg_resp_time"
+    "pool" -> "min_queue"
+    "pool" -> "new()"
+    "pool" -> "get(self,schemes)" -> "Option<SimpleProxy>"
+    "pool" -> "import(self,expected_schemes)" -> "Option<SimpleProxy>"
+    "pool" -> "put(&mut self, proxy: SimpleProxy)"
+    "pool" -> "remove(&mut self, host: &str, port: u16)" -> "Option<SimpleProxy>"
+}

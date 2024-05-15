@@ -1,0 +1,26 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "provider" [label="struct Provider"]
+    "provider" -> "url"
+    "provider" -> "new_urls"
+    "provider" -> "max_depth"
+    "provider" -> "pattern"
+    "provider" -> "proto"
+    "provider" -> "name"
+    "provider" -> "timeout"
+    "provider" -> "default()" -> "Provider"
+    
+    "task" [label="struct ProviderTask"]
+    "task" -> "client: Client"
+    "task" -> "base: Provider"
+    "task" -> "new(base: Provider)" -> "ProviderTask"
+    "task" -> "build_get_request(self,uri)" -> "Request<Body>"
+    "task" -> "get_html(self,request)"
+    "task" -> "get_proxies(self)" -> "Vec<(String, u16, Vec<String>)>"
+
+    "providers()" -> "Vec<Provider>"
+    "update_stack(name,proxies)"
+    "run_all_providers(num_conn)"
+}

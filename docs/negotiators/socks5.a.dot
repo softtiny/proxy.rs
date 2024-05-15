@@ -1,0 +1,11 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "socks5" [label="struct Socks5Negotiator"]
+    "socks5" -> "name"
+    "socks5" -> "check_anon_lvl"
+    "socks5" -> "use_full_path"
+    "socks5" -> "negotiate(&self, proxy: &mut Proxy)" -> "bool"
+    "socks5" -> "default()" -> "Socks5Negotiator"
+}

@@ -1,0 +1,48 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "db" [label="mod geolite_database"]
+    "db" -> "download_geolite_db()"
+    "db" -> "calculate_checksum(file_path)"
+    "db" -> "open_geolite_db()" -> "Option<Reader<Vec<u8>>> "
+    "serializer" [label="mod serializer"]
+    "serializer" -> "Geo"
+    "serializer" -> "Country"
+    "serializer" -> "Region"
+    "serializer" -> "ProxyData"
+    "serializer" -> "ProxyType"
+    
+    "update" [label="mod update"]
+    "update" -> "check_version()"
+
+    
+    subgraph cluster_http {
+        "request" [label="mod request"]
+        "response" [label="mod response"]
+        "random_useragent(random_value: bool)"
+        "get_headers(random_value: bool" -> "(BTreeMap<String, String>, String)"
+        "hyper_client()" -> "Client"
+
+        "parse" [label="struct RequestParser"]
+        "request" -> "parse"
+        "parse" -> "method"
+        "parse" -> "path"
+        "parse" -> "version"
+        "parse" -> "headers"
+        "parse" -> "parse(data:&[u8])"
+        "parse" -> "get_host()"
+
+        "res" [label="struct ResponseParser"]
+        "response" -> "res"
+        "res" -> "version"
+        "res" -> "status_code"
+        "res" -> "reason"
+        "res" -> "headers"
+        "res" -> "body"
+        "res" -> "raw"
+        "res" -> "parse(data: &[u8])" -> "ResponseParser"
+
+        label = "mod http"
+    }
+}

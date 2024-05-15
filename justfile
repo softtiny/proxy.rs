@@ -29,14 +29,17 @@ set dotenv-filename := ".env.local"
 @argument:
   cargo modules dependencies -p proxy-rs --manifest-path ./ --no-externs --no-sysroot --no-uses --max-depth 1 --focus-on  proxy_rs::argument::* | save -f docs/cli/argument.a.dot
 
+@prodot:
+  dot -Tpng ./docs/providers/providers.a.dot -o ./docs/providers/providers.a.png
+  start ./docs/providers/providers.a.png
 
 @clidot:
   dot -Tpng ./docs/cli/serveargs.a.dot -o ./docs/cli/serveargs.a.png
   start ./docs/cli/serveargs.a.png
 
 @dot:
-  dot -Tpng ./docs/resolver/resolver.a.dot -o ./docs/resolver/resolver.a.png
-  start ./docs/resolver/resolver.a.png
+  dot -Tpng ./docs/utils/utils.a.dot -o ./docs/utils/utils.a.png
+  start ./docs/utils/utils.a.png
 
 @test_checker:
   cargo test -- --nocapture test_checker_ip_re
