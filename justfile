@@ -38,8 +38,8 @@ set dotenv-filename := ".env.local"
   start ./docs/cli/serveargs.a.png
 
 @dot:
-  dot -Tpng ./docs/utils/utils.a.dot -o ./docs/utils/utils.a.png
-  start ./docs/utils/utils.a.png
+  dot -Tpng ./docs/deps/parking_lot.a.dot -o ./docs/deps/parking_lot.a.png
+  start ./docs/deps/parking_lot.a.png
 
 @test_checker:
   cargo test -- --nocapture test_checker_ip_re
