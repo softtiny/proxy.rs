@@ -38,8 +38,8 @@ set dotenv-filename := ".env.local"
   start ./docs/cli/serveargs.a.png
 
 @dot:
-  dot -Tpng ./docs/deps/hyper.a.dot -o ./docs/deps/hyper.a.png
-  start ./docs/deps/hyper.a.png
+  dot -Tpng ./docs/deps/hyper.b.dot -o ./docs/deps/hyper.b.png
+  start ./docs/deps/hyper.b.png
 
 
 @stddot:

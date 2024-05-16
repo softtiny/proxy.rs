@@ -1,0 +1,17 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "hyper" [label="Crate hyper"]
+    "hyper_tls" [label="Crate hyper_tls"]
+    "Http" [label="struct Http"]
+    "Connection" [label="struct Connection"]
+    "crate_http" [label="pub use crate::http::{header, Method, Request, Response, StatusCode, Uri, Version}"]
+    "Http" -> "new()" -> "http1_title_case_headers(true)" -> "serve_connection(stream, service_fn(handle_stream))" -> "Connection"
+    "Connection" -> "with_upgrades(self)"
+    "crate_http" -> "http::Request" -> "method(&self)"
+    "crate_http" -> "http::Method" -> "Method::CONNECT"
+
+    "server/mod.rs" -> "Http"
+    "server/mod.rs" -> "crate_http"
+}
