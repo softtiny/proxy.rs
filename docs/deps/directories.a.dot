@@ -1,0 +1,10 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "directories" [label="Crate directories"]
+    "ProjectDirs" [label="struct ProjectDirs"]
+    "utils/geolite_database.rs" -> "directories" -> "ProjectDirs"
+    "ProjectDirs" -> "from_path(project_path: PathBuf)" -> "Option<ProjectDirs>"
+    "ProjectDirs" -> "data_dir(&self)" -> "&Path" -> "to_path_buf()"
+}

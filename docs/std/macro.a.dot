@@ -1,0 +1,10 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "option_env" [label="Macro std::option_env"]
+    "CARGO_PKG_NAME" [label="option_env!(\"CARGO_PKG_NAME\")"]
+    "utils/geolite_database.rs" -> "CARGO_PKG_NAME"
+    "utils/http/mod.rs" -> "CARGO_PKG_NAME" -> "unwrap_or(\"proxy-rs\")"
+    "utils/http/mod.rs" -> "option_env!(\"CARGO_PKG_VERSION\")" -> "unwrap_or(\"0.0.0\")"
+}

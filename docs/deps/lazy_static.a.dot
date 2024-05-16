@@ -1,0 +1,18 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "lazy_static" [label="crate lazy_static"]
+    "resolver.rs" -> "DNS_RESOLVER: TokioAsyncResolver"
+    "resolver.rs" -> "GEO_CITY: AsyncOnce<Reader<Vec<u8>>>"
+    "resolver.rs" -> "CACHED_HOSTS: Arc<Mutex<HashMap<String, String>>>"
+    "resolver.rs" -> "EXT_IP_HOSTS: Vec<String>"
+
+    "providers/mod.rs" -> "PROXIES: ConcurrentQueue<Proxy>"
+    "providers/mod.rs" -> "UNIQUE_PROXIES: DashSet<String>"
+
+    "server/mods.rs" -> "POOL: Mutex<ProxyPool>"
+
+    "server/proxy_pool.rs" -> "LIVE_PROXIES: ConcurrentQueue<Proxy>"
+    "utils/geolite_database.rs" -> "DOWNLOADING: Mutex<bool>"
+}

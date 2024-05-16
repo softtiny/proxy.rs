@@ -1,0 +1,18 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "indicatif" [label="Crate indicatif"]
+    "ProgressBar" [label="struct ProgressBar"]
+    "ProgressStyle" [label="struct ProgressStyle"]
+    "utils/geolite_database.rs" -> "indicatif" -> "ProgressBar"
+    "indicatif" -> "ProgressStyle"
+    "ProgressBar" -> "new(len: u64)"
+    "ProgressBar" -> "hidden()"
+    "ProgressBar" -> "with_draw_target(len,draw_target)"
+    "ProgressBar" -> "style(&self)"
+    "ProgressBar" -> "with_style(self,style: ProgressStyle)"
+    "ProgressBar" -> "set_length(&self, len: u64)"
+    "ProgressBar" -> "inc(&self, delta: u64)"
+    "ProgressStyle" -> "with_template(template: &str)" -> "Result<ProgressStyle, TemplateError>"
+}
