@@ -1,0 +1,61 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "hyper" [label="Crate hyper"]
+    "hyper_tls" [label="Crate hyper_tls"]
+    "native_tls" [label="pub extern crate native_tls"]
+    "conn::Http" [label="struct Http"]
+    "http" [label="pub use crate::http::{header, Method, Request, Response, StatusCode, Uri, Version}"]
+    "HttpConnector" [label="struct HttpConnector"]
+    "HttpsConnector" [label="struct HttpsConnector"]
+    "Body" [label="struct Body"]
+    "Client" [label="struct Client"]
+    "Builder" [label="struct Builder"]
+    "Request" [label="struct Request"]
+    "Response" [label="struct Response"]
+    "Parts" [label="struct Parts"]
+    "StatusCode" [label="struct StatusCode"]
+    "LOCATION" [label="const LOCATION"]
+    "TlsConnector" [label="struct TlsConnector"]
+    "TlsConnectorBuilder" [label="struct TlsConnectorBuilder"]
+    "hyper" -> "HttpConnector"
+    "hyper_tls" -> "HttpsConnector"
+    "hyper_tls" -> "native_tls"
+    "hyper" -> "http"
+    "hyper" -> "Body"
+    "hyper" -> "Client"
+    "hyper" -> "conn::Http" -> "new() -> Http" -> "http1_title_case_headers(&mut self, enabled: bool)" -> "http1_preserve_header_case(&mut self, enabled: bool)" -> "serve_connection(stream,service_fn(handle_stream))"
+    "http" -> "Request"
+    "http" -> "Response"
+    "http" -> "StatusCode"
+    "http" -> "LOCATION"
+    "judge.rs" -> "HttpConnector" -> "new()" -> "enforce_http(&mut self, is_enforced: bool)"
+    "judge.rs" -> "Body"
+    "judge.rs" -> "Client"
+    "judge.rs" -> "Builder"
+    "judge.rs" -> "Request"
+    "judge.rs" -> "TlsConnector"
+    "judge.rs" -> "TlsConnectorBuilder"
+    "judge.rs" -> "native_tls"
+    "Body" -> "empty()"
+    "Parts" -> "headers: HeaderMap<HeaderValue>"
+    "Client" -> "builder()" -> "Builder" -> "build(&self, connector: C)" -> "Client"
+    "Client" -> "request(&self, req: Request<B>)" -> "ResponseFuture" -> ".await" -> "Response"
+    "Request" -> "builder()" 
+    "Response" -> "into_parts(self)" -> "(part:Parts, body:Body)" -> "part.headers.get(LOCATION)"
+    "Builder" -> "uri(self,uri)"
+    "Builder" -> "header(self,key,value) where HeaderName: TryFrom<K>, HeaderValue: TryFrom<V>"
+    "StatusCode" -> "const OK" -> "StatusCode::Ok"
+    "HttpsConnector" -> "from(args: (T, TlsConnector))"
+    "native_tls" -> "TlsConnector" -> "builder() -> TlsConnectorBuilder" -> "danger_accept_invalid_certs(&self,accept_invalid_certs: bool)" -> "danger_accept_invalid_hostnames(&self,accept_invalid_hostnames: bool)" -> "build(&self) -> Result<TlsConnector>" 
+
+    "resolver.rs" -> "Body"
+    "resolver.rs" -> "Request"
+
+    "providers/base_provider.rs" -> "HttpConnector"
+    "providers/base_provider.rs" -> "Body"
+    "providers/base_provider.rs" -> "Request"
+    "providers/base_provider.rs" -> "Client"
+    "providers/base_provider.rs" -> "LOCATION"
+}
