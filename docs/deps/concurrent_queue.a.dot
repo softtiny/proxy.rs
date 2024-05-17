@@ -1,0 +1,14 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "concurrent_queue" [label="Crate concurrent_queue"]
+    "ConcurrentQueue" [label="struct ConcurrentQueue"]
+    "concurrent_queue" -> "ConcurrentQueue" -> "unbounded()"
+    "ConcurrentQueue" -> "push(&self, value: T)"
+    "ConcurrentQueue" -> "bounded(20)"
+    "ConcurrentQueue" -> "pop(&self)"
+
+    "providers/mod.rs" -> "PROXIES: ConcurrentQueue<Proxy>"
+    "server/proxy_tools.rs" -> "LIVE_PROXIES: ConcurrentQueue<Proxy>"
+}

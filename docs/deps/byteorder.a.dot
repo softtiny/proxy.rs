@@ -1,0 +1,17 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "byteorder" [label="Crate byteorder"]
+    "byteorder_pack" [label="Crate byteorder_pack"]
+    "BigEndian" [label="enum BigEndian"]
+    "PackTo" [label="trait PackTo: Sized + Copy"]
+    "byteorder" -> "BigEndian"
+    "byteorder_pack" -> "PackTo"
+    "PackTo" -> "pack_to<E: ByteOrder, W: Write + ?Sized>(self, dst: &mut W) -> IoResult<()>"
+
+    "negotiators/socks5.rs" -> "byteorder"
+    "negotiators/socks5.rs" -> "byteorder_pack"
+    "negotiators/socks4.rs" -> "byteorder"
+    "negotiators/socks4.rs" -> "byteorder_pack"
+}

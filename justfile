@@ -42,8 +42,8 @@ set dotenv-filename := ".env.local"
   start ./docs/deps/parking_lot.a.png
 
 @dot:
-  dot -Tpng ./docs/deps/hyper.b.dot -o ./docs/deps/hyper.b.png
-  start ./docs/deps/hyper.b.png
+  dot -Tpng ./docs/deps/byteorder.a.dot -o ./docs/deps/byteorder.a.png
+  start ./docs/deps/byteorder.a.png
 
 
 @stddot:
