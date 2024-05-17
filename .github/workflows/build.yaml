@@ -1,0 +1,29 @@
+name: Barcode Scan
+on:
+  workflow_dispatch:
+
+jobs:
+  publish:
+    name: buildRR
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout sources
+        uses: actions/checkout@v2
+        with:
+          repository: 'zevtyardt/proxy.rs'
+      - name: Install stable toolchain
+        uses: actions-rs/toolchain@v1
+        with:
+          profile: minimal
+          toolchain: stable
+          override: true
+      - name: buildRRRR
+        shell: bash
+        run: |
+          cargo build -r
+      - name: Upload artifact
+        uses: actions/upload-artifact@v2
+        with:
+            name: proxy
+            path: target/release/proxy-rs
+
