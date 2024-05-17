@@ -20,7 +20,7 @@ digraph {
     "simple" -> "types"
     "simple" -> "schemes"
     "simple" -> "runtimes"
-    "simple" -> "request_stat"
+    "simple" -> "request_stat" -> "server/mod.rs: += 1"
     "simple" -> "error_stat"
     "simple" -> "as_text(&self)"
     "simple" -> "error_rate(&self)"

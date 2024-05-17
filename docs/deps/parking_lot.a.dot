@@ -4,7 +4,7 @@ digraph {
     ]
     "parking_lot" [label="crates parking_lot"]
     "parking_lot" -> "Mutex"
-    "Mutex" -> "Mutex::new(false)"
+    "Mutex" -> "Mutex::new(false)" -> "lock(&self)"
     "main.rs" -> "STOP_FIND_LOOP: Arc<Mutex<bool>>" -> "Arc::new(Mutex::new(false))"
     "checker.rs" -> "ENABLE_PROTOCOLS: Mutex<DashSet<String>>" -> "Mutex::new(DashSet::new())"
     "server/mod.rs" -> "POOL: Mutex<ProxyPool>" -> "Mutex::new(ProxyPool::new())"
