@@ -1,0 +1,28 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "dashmap" [label="Crate dashmap"]
+    "DashMap" [label="struct DashMap<K, V, S = RandomState>"]
+    "DashSet" [label="struct DashSet<K, S = RandomState>"]
+    "Extend"  [label="impl<K: Eq + Hash, S: BuildHasher + Clone> Extend<K> for DashSet<K, S>"]
+    
+    "DashMap" -> "new()"
+    "DashSet" -> "new()" 
+    "DashMap" -> "contains_key<Q>(&self, key: &Q)"
+    "DashMap" -> "insert(&self, key: K, value: V)"
+    "DashMap" -> "get_mut<Q>(&'a self, key: &Q)"
+    "DashSet" -> "Extend"
+    "DashSet" -> "insert(&self, key: K)"
+    "DashSet" -> "contains<Q>(&self, key: &Q)"
+    "DashSet" -> "get<Q>(&'a self, key: &Q)"
+    "Extend" -> "extend<T: IntoIterator<Item = K>>(&mut self, iter: T)"
+
+    "dashmap" -> "DashMap"
+    "dashmap" -> "DashSet"
+
+    "checker.rs" -> "DashMap"
+    "checker.rs" -> "DashSet"
+
+    "providers/mod.rs" -> "DashSet"
+}

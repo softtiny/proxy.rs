@@ -1,4 +1,10 @@
 digraph {
+    "cli" [label="struct Cli"]
+    "cli" -> "--max-conn"
+    "cli" -> "--timeout"
+    "cli" -> "--log"
+    "cli" -> "--skip-version-check"
+    "cli" -> "cli_sub"
     "cli_sub" [label="match cli.sub"] 
     "Cli::parse()" -> "cli_sub"
     "cli_sub" -> "Grab"

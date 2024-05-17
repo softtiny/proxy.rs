@@ -1,0 +1,29 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "log" [label="Crate log"]
+    "simple_logger" [label="simple_logger"]
+    "SimpleLogger" [label="struct SimpleLogger "]
+    "log" -> "debug!()"
+    "log" -> "error!()"
+    "log" -> "info!()"
+    "log" -> "log!()"
+    "log" -> "trace!()"
+    "log" -> "warn!()"
+    "simple_logger" -> "SimpleLogger"
+    "SimpleLogger" -> "new()"
+    "SimpleLogger" -> "with_level(self, level: LevelFilter)"
+    "SimpleLogger" -> "with_module_level(self, target: &str, level: LevelFilter)"
+    "SimpleLogger" -> "without_timestamps(self)"
+    "SimpleLogger" -> "init(self)"
+    subgraph cluster_level{
+        "Off = 0"
+        "Error = 1,"
+        "Warn = 2,"
+        "Info = 3,"
+        "Debug = 4,"
+        "Trace = 5,"
+        label="enum LevelFilter"
+    }
+}

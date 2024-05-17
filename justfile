@@ -34,16 +34,16 @@ set dotenv-filename := ".env.local"
   start ./docs/server/server.a.png
 
 @clidot:
-  dot -Tpng ./docs/cli/serveargs.a.dot -o ./docs/cli/serveargs.a.png
-  start ./docs/cli/serveargs.a.png
+  dot -Tpng ./docs/cli/cli_parse.a.dot -o ./docs/cli/cli_parse.a.png
+  start ./docs/cli/cli_parse.a.png
 
 @bakdot:
   dot -Tpng ./docs/deps/parking_lot.a.dot -o ./docs/deps/parking_lot.a.png
   start ./docs/deps/parking_lot.a.png
 
 @dot:
-  dot -Tpng ./docs/deps/byteorder.a.dot -o ./docs/deps/byteorder.a.png
-  start ./docs/deps/byteorder.a.png
+  dot -Tpng ./docs/deps/log.a.dot -o ./docs/deps/log.a.png
+  start ./docs/deps/log.a.png
 
 
 @stddot:
