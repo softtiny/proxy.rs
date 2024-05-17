@@ -1,4 +1,4 @@
-name: Barcode Scan
+name: Build Proxy
 on:
   workflow_dispatch:
 
