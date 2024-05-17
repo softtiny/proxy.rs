@@ -1,0 +1,22 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "maxminddb" [label="Crate maxminddb"]
+    "Reader" [label="struct Reader<S: AsRef<[u8]>>"]
+    "City" [label="struct City"]
+    "Reader" -> "open_readfile<P: AsRef<Path>>"
+    "maxminddb" -> "Reader"
+    "maxminddb" -> "City"
+    "City" -> "country"
+    "country" -> "iso_code"
+    "country" -> "names"
+    "City" -> "continent"
+    "City" -> "subdivisions"
+    "City" -> "city"
+
+    
+    "utils/geoliste_database.rs" -> "Reader"
+    "resolver.rs" -> "Reader"
+    "resolver.rs" -> "City"
+}

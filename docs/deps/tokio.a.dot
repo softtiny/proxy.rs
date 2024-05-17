@@ -1,0 +1,13 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "tokio" [label="Crate tokio"]
+    "Semaphore" [label="struct Semaphore"]
+    "OwnedSemaphorePermit" [label="struct OwnedSemaphorePermit "]
+    "Instant" [label="struct Instant"]
+    "Semaphore" -> "new(permits: usize)"
+
+    "tokio" -> "Semaphore" -> "acquire_owned(self: Arc<Self>)" -> "OwnedSemaphorePermit"
+    "tokio" -> "Instant" -> "now() -> Instant"
+}

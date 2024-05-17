@@ -21,4 +21,4 @@ jobs:
           toolchain: stable
           override: true
 
-      - run: cargo publish --token ${{ secrets.CRATES_TOKEN }}
+

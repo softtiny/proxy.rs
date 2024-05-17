@@ -1,0 +1,9 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "md5" [label="Crate md5"]
+    "Content" [label="struct Context"]
+    "md5" -> "Content" -> "new()" -> "consume<T: AsRef<[u8]>>(&mut self, data: T)" -> "compute(self) -> Digest"
+    "utils/geolite_database.rs" -> "Content"
+}
