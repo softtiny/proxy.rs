@@ -9,8 +9,8 @@ jobs:
     steps:
       - name: Checkout sources
         uses: actions/checkout@v2
-        with:
-          repository: 'zevtyardt/proxy.rs'
+        # with:
+        #  repository: 'zevtyardt/proxy.rs'
       - name: Install stable toolchain
         uses: actions-rs/toolchain@v1
         with:
