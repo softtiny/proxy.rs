@@ -2,7 +2,7 @@ pub mod proxy_pool;
 
 use std::time::Duration;
 
-use hyper::{server::conn::Http, service::service_fn, Body, MethodMethod, Request, Response, StatusCode};
+use hyper::{server::conn::Http, service::service_fn, Body, Method, Request, Response, StatusCode};
 use lazy_static::lazy_static;
 use parking_lot::Mutex;
 use tokio::{
