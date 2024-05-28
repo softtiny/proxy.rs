@@ -30,8 +30,8 @@ set dotenv-filename := ".env.local"
   cargo modules dependencies -p proxy-rs --manifest-path ./ --no-externs --no-sysroot --no-uses --max-depth 1 --focus-on  proxy_rs::argument::* | save -f docs/cli/argument.a.dot
 
 @libdot:
-  dot -Tpng ./docs/server/server.a.dot -o ./docs/server/server.a.png
-  start ./docs/server/server.a.png
+  dot -Tpng ./docs/checker/checker.c.dot -o ./docs/checker/checker.c.png
+  start ./docs/checker/checker.c.png
 
 @clidot:
   dot -Tpng ./docs/cli/cli_parse.a.dot -o ./docs/cli/cli_parse.a.png
@@ -42,8 +42,8 @@ set dotenv-filename := ".env.local"
   start ./docs/deps/parking_lot.a.png
 
 @dot:
-  dot -Tpng ./docs/main/main.a.dot -o ./docs/main/main.a.png
-  start ./docs/main/main.a.png
+  dot -Tpng ./docs/main/check_judges.a.dot -o ./docs/main/check_judges.a.png
+  start ./docs/main/check_judges.a.png
 
 
 @stddot:
@@ -52,3 +52,6 @@ set dotenv-filename := ".env.local"
 
 @test_checker:
   cargo test -- --nocapture test_checker_ip_re
+
+@test_reurl:
+  cargo test -- --nocapture test_re_url

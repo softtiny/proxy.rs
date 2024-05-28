@@ -1,0 +1,10 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "run_all_providers" [label="providers::run_all_providers(3)"]
+    "providers" [label="for provider in providers() "]
+    "ProviderTask" [label="let task = ProviderTask::new(provider)"]
+    "get_proxies" [label="task.get_proxies()"]
+    "run_all_providers" -> "providers" -> "ProviderTask" -> "get_proxies" [arrowhead="dot"]
+}

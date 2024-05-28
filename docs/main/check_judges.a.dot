@@ -1,0 +1,9 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "check_judges" [label="checker::check_judges(verify_ssl, ext_ip, expected_types)"]
+    "get_judges" [label="get_judges()"]
+    "check_judge_host" [label="check_judge_host(&mut judge, &ext_ip)"]
+    "check_judges" -> "get_judges" -> "check_judge_host"
+}

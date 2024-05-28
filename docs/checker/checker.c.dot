@@ -2,6 +2,7 @@ digraph {
     graph [ 
         rankdir=LR,
     ]
+    "check_judges" [label="check_judges(ssl: bool, ext_ip: String, mut expected_types: Vec<String>)"]
     "checker" [label="struct Checker"]
     "checker" -> "verify_ssl"
     "checker" -> "timeout"

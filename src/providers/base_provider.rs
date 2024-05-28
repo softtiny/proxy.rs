@@ -118,12 +118,36 @@ impl ProviderTask {
             for cap in re.captures_iter(&html) {
                 let ip = cap.get(1).unwrap().as_str();
                 let port = cap.get(2).unwrap().as_str();
-
+                if ! ( &ip[..4].contains('.') ) {
+                    continue
+                }
                 if let Ok(port) = port.parse::<u16>() {
                     all_proxies.push((ip.to_string(), port, self.base.proto.clone()));
                 }
             }
         }
         all_proxies
+    }
+}
+
+#[test]
+fn test_re_url() {
+    println!("run test re url");
+    let rule = r#"(?P<ip>(?:\d+\.?){4})\:(?P<port>\d+)"#;
+    let re = Regex::new(rule).unwrap();
+    let html = "error code: 101578.135.105.217:50504
+71.71.71.71:1234
+7.7.7.7:1234
+1.1.1.1:1234
+123.123.123.123:1232
+1.180.0.162:7302";
+    for cap in re.captures_iter(html) {
+        let ip = cap.get(1).unwrap().as_str();
+        let port = cap.get(2).unwrap().as_str();
+        if ! ( &ip[..4].contains('.') ) {
+            continue
+        }
+        println!("{:?}",ip);
+        println!("{:?}",port);
     }
 }

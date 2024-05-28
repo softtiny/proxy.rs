@@ -115,12 +115,7 @@ pub fn providers() -> Vec<Provider> {
         //     url: "https://proxyspace.pro/https.txt",
         //     ..Default::default()
         // },
-        Provider {
-            name: "www.proxyscan.io/..socks5",
-            url: "https://api.openproxylist.xyz/socks5.txt",
-            proto: vec_of_strings!["SOCKS5"],
-            ..Default::default()
-        },
+
         /* proxyscrape */
         // no http https
         // Provider {
@@ -129,18 +124,7 @@ pub fn providers() -> Vec<Provider> {
         //     proto: vec_of_strings!["HTTP", "CONNECT:80", "HTTPS", "CONNECT:25"],
         //     ..Default::default()
         // },
-        Provider {
-            name: "api.proxyscrape.com/..socks4",
-            url: "https://api.proxyscrape.com/?request=getproxies&proxytype=socks4",
-            proto: vec_of_strings!["SOCKS4"],
-            ..Default::default()
-        },
-        Provider {
-            name: "api.proxyscrape.com/..socks5",
-            url: "https://api.proxyscrape.com/?request=getproxies&proxytype=socks5",
-            proto: vec_of_strings!["SOCKS5"],
-            ..Default::default()
-        },
+
         /* github */
         Provider {
             name: "github.com/zevtyardt/proxy-list",
@@ -206,6 +190,24 @@ pub fn providers() -> Vec<Provider> {
         Provider {
             name: "github.com/mmpx12/proxy-list/socks5.txt",
             url: "https://raw.githubusercontent.com/mmpx12/proxy-list/master/socks5.txt",
+            proto: vec_of_strings!["SOCKS5"],
+            ..Default::default()
+        },
+        Provider {
+            name: "www.proxyscan.io/..socks5",
+            url: "https://api.openproxylist.xyz/socks5.txt",
+            proto: vec_of_strings!["SOCKS5"],
+            ..Default::default()
+        },
+        Provider {
+            name: "api.proxyscrape.com/..socks4",
+            url: "https://api.proxyscrape.com/?request=getproxies&proxytype=socks4",
+            proto: vec_of_strings!["SOCKS4"],
+            ..Default::default()
+        },
+        Provider {
+            name: "api.proxyscrape.com/..socks5",
+            url: "https://api.proxyscrape.com/?request=getproxies&proxytype=socks5",
             proto: vec_of_strings!["SOCKS5"],
             ..Default::default()
         },

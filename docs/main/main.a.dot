@@ -6,13 +6,17 @@ digraph {
     "cli" [label="Cli::parse()"]
     "channel" [label="let (tx, mut rx) = mpsc::channel(50);"]
     "Checker" [label="Checker::new()"]
+    "Resolver" [label="Resolver::new()"]
     "check_judges" [label="checker::check_judges(verify_ssl, ext_ip, expected_types)"]
     "run_all_providers" [label="providers::run_all_providers(3)"]
     "handle_find_command" [label="handle_find_command(checker, max_conn, tx)"]
     "Server" [label="Server::new(host.as_str(), port)"]
+    "PROXIES" [label="providers::PROXIES"]
     "main" -> "cli" -> "channel" -> "run_all_providers" [arrowhead="dot"]
     "cli" -> "handle_grab_command(grab_args, tx)"
     "cli" -> "Commands::Find" -> "Checker" -> "check_judges" -> "handle_find_command" [color="red"]
     "cli" -> "Commands::Serve" -> "Checker" -> "check_judges" -> "handle_find_command" [color="blue"]
     "Commands::Serve" -> "Server" -> "server.start()" [arrowhead="dot"]
+    "Checker" -> "Resolver" [color="gray"]
+    "handle_find_command" -> "PROXIES" [color="gray"]
 }
