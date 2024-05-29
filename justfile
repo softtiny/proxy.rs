@@ -42,8 +42,8 @@ set dotenv-filename := ".env.local"
   start ./docs/deps/parking_lot.a.png
 
 @dot:
-  dot -Tpng ./docs/main/check_judges.a.dot -o ./docs/main/check_judges.a.png
-  start ./docs/main/check_judges.a.png
+  dot -Tpng ./docs/main/check_proxy.a.dot -o ./docs/main/check_proxy.a.png
+  start ./docs/main/check_proxy.a.png
 
 
 @stddot:

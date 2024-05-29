@@ -1,0 +1,10 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "PROXIES" [label="pub static ref PROXIES: ConcurrentQueue<Proxy> = ConcurrentQueue::unbounded()"]
+    "push" [label="PROXIES.push(proxy).is_ok()"]
+    "pop" [lable="PROXIES.pop()"]
+    "PROXIES" -> "push"
+    "PROXIES" -> "pop" -> "checker.check_proxy(&mut proxy)" [color="red"]
+}

@@ -1,0 +1,16 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "main" [label="main()"]
+    "check_judges" [label="checker::check_judges(verify_ssl, ext_ip, expected_types)"]
+    "run_all_providers" [label="providers::run_all_providers(3)"]
+    "PROXIES" [label="pub static ref PROXIES: ConcurrentQueue<Proxy> = ConcurrentQueue::unbounded()"]
+    "check_proxy" [label="checker.check_proxy(&mut proxy)"]
+    "main" -> "check_judges"
+    "main" -> "run_all_providers"
+    "main" -> "PROXIES"
+    "check_judges" -> "check_proxy"
+    "run_all_providers" -> "check_proxy"
+    "PROXIES" -> "check_proxy"
+}
