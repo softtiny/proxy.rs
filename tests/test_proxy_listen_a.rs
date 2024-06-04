@@ -74,6 +74,7 @@ fn proxy_simple() {
                 if let Some(Some(proxy)) = rx.recv().await {
                     println!("{:?}",proxy);
                     LIVE_PROXIES.push(proxy).unwrap();
+                    println!("{:?}",LIVE_PROXIES.is_empty());
                 }
             }
         });
