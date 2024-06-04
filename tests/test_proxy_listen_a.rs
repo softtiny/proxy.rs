@@ -1,3 +1,4 @@
+use std::collections::BTreeMap;
 use tokio::{
     sync::mpsc,
     runtime,
@@ -6,6 +7,7 @@ use tokio::{
     },
 };
 use proxy_rs::proxy::Proxy;
+use proxy_rs::resolver::GeoData;
 use proxy_rs::server::{proxy_pool::LIVE_PROXIES, Server};
 
 
@@ -36,10 +38,26 @@ fn proxy_simple() {
                 println!("wait 3s start");
                 sleep(Duration::from_secs(3)).await;
                 println!("wait 3s end");
-                if let Some(proxy) = Proxy::create("127.0.0.1", 8899, vec!["HTTP".to_string()]).await {
-                    println!("wait 3s end.1");
-                    tx.send(Some(proxy)).await.unwrap();
-                }
+                let mut geodata = GeoData::default();
+                let proxy = Proxy{
+                    host:"192.168.1.190".to_string(),
+                    port: 1080,
+                    expected_types:vec!["HTTP".to_string()],
+                    geo:geodata,
+                    types: vec![],
+                    schemes: vec![],
+                    logs: vec![],
+                    negotiator_proto: "HTTP".to_string(),
+                    timeout: 5,
+                    runtimes: vec![],
+                    tcp_stream: None,
+                    tls_stream: None,
+                    verify_ssl: false,
+                    request_stat: 0,
+                    error_stat: BTreeMap::new(),
+                    is_working: false,
+                };
+                tx.send(Some(proxy)).await.unwrap();
                 println!("wait 3s end.2");
             });
             tokio::task::spawn(async move {
