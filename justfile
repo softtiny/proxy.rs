@@ -47,8 +47,8 @@ set dotenv-filename := ".env.local"
 
 
 @stddot:
-  dot -Tpng ./docs/std/macro.a.dot -o ./docs/std/macro.a.png
-  start ./docs/std/macro.a.png
+  dot -Tpng ./docs/std/VecDeque.a.dot -o ./docs/std/VecDeque.a.png
+  start ./docs/std/VecDeque.a.png
 
 @test_checker:
   cargo test -- --nocapture test_checker_ip_re

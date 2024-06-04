@@ -1,0 +1,14 @@
+digraph {
+    graph [ 
+        rankdir=LR,
+    ]
+    "VecDeque" [label="struct VecDeque"]
+    "VecDeque" -> "new()"
+    "VecDeque" -> "with_capacity(capacity: usize)"
+    "VecDeque" -> "try_with_capacity(capacity: usize)"
+    "VecDeque" -> "push_back(&mut self, value: T)"
+    "VecDeque" -> "len(&self)"
+    "VecDeque" -> "pop_front(&mut self)"
+    "VecDeque" -> "remove(&mut self, index: usize)"
+    "VecDeque" -> "is_empty(&self)"
+}
