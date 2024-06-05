@@ -3,7 +3,7 @@ digraph {
         rankdir=LR,
     ]
     "log" [label="Crate log"]
-    "simple_logger" [label="simple_logger"]
+    "simple_logger" [label="https://github.com/borntyping/rust-simple_logger"]
     "SimpleLogger" [label="struct SimpleLogger "]
     "log" -> "debug!()"
     "log" -> "error!()"
@@ -24,6 +24,8 @@ digraph {
         "Info = 3,"
         "Debug = 4,"
         "Trace = 5,"
+        "LevelFilter" [label="log::LevelFilter"]
         label="enum LevelFilter"
     }
+    "log" -> "LevelFilter"
 }

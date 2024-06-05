@@ -38,8 +38,8 @@ set dotenv-filename := ".env.local"
   start ./docs/cli/cli_parse.a.png
 
 @bakdot:
-  dot -Tpng ./docs/deps/parking_lot.a.dot -o ./docs/deps/parking_lot.a.png
-  start ./docs/deps/parking_lot.a.png
+  dot -Tpng ./docs/deps/log.a.dot -o ./docs/deps/log.a.png
+  start ./docs/deps/log.a.png
 
 @dot:
   dot -Tpng ./docs/main/check_proxy.a.dot -o ./docs/main/check_proxy.a.png
